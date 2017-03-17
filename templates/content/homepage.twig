@@ -1,0 +1,41 @@
+{% extends "system/base.twig" %}
+
+{% block content %}
+    <?php while (have_posts()) : the_post(); ?>
+    <?php the_content(); ?>
+    <?php if(get_field('banner_slider')): ?>
+    <div class="home-banner">
+        <div class="row">
+            <div class="col-xs-12">
+                <?php putRevSlider(get_field('banner_slider')); ?>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>
+
+    <div class="content-blocks">
+        <div class="row">
+            <?php while(have_rows('top_blocks')): the_row(); ?>
+            <?php get_template_part("templates/partials/little_blocks"); ?>
+            <?php endwhile; ?>
+
+            <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12 tile slick-slider">
+                <?php get_template_part("templates/partials/slider-slick"); ?>
+            </div>
+
+            <?php while(have_rows('bottom_blocks')): the_row(); ?>
+            <?php get_template_part("templates/partials/little_blocks"); ?>
+            <?php endwhile; ?>
+        </div>
+    </div>
+
+    <div class="slick-news">
+        <div class="row">
+            <div class="col-lg-4">
+                <?php get_template_part('templates/partials/slider-slick-news'); ?>
+            </div>
+        </div>
+    </div>
+
+    <?php endwhile; ?>
+{% endblock %}
