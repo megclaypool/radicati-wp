@@ -1,0 +1,18 @@
+<header id="header" class="container-fluid">
+    {% block header %}
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-lg-2 col-md-4 col-sm-12">
+                    <h1 class="hdr-logo" role="banner">
+                        <a class="hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <nav id="primary-menu" class='row' role="navigation">
+            <div class="col-xs-12">
+                {% include "menu/menu-primary.twig" with {'menu': primary_menu.get_items} %}
+            </div>
+        </nav>
+    {% endblock %}
+</header>

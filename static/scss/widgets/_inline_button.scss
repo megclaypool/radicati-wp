@@ -1,0 +1,27 @@
+$inline-btn-color: white;
+$inline-btn-default: black;
+$inline-btn-orange: orange;
+$inline-btn-red: red;
+
+
+.inline-btn {
+  display: inline-block;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: $inline-btn-default;
+  color: $inline-btn-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+    color: $inline-btn-color;
+  }
+
+  &.orange {
+    background-color: $inline-btn-orange;
+  }
+
+  &.red {
+    background-color: $inline-btn-red;
+  }
+}

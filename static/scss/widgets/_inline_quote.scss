@@ -1,0 +1,24 @@
+$inline-quote-border-color: black;
+$inline-quote-background-color: gray;
+
+
+
+.inline-quote {
+
+  .quote {
+
+
+    &:before {
+      content: open-quote;
+    }
+
+    &:after {
+      content: close-quote;
+    }
+  }
+
+  .quote-byline {
+
+  }
+
+}
