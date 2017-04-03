@@ -27,25 +27,69 @@
 		{% include "system/off-canvas.twig" %}
 		{% include "regions/header.twig" %}
 
+		{# Templates that extend this one can define hero content such has full width header images or slideshows #}
+		{% block hero_content %}{% endblock %}
 
-		<section id="content" role="main" class="content-wrapper">
-			{% if title %}<h1>{{title}}</h1>{% endif %}
-			<div class="wrapper {{sidebar_class}}">
-				{% block content %}
-					Sorry, no content
-				{% endblock %}
+		<section id="content" role="main" class="content-wrapper container-fluid">
+			<div class="row">
+				{% if sidebar_far_left %}
+					{# The far left sidebar is not under the site title #}
+					<div id="sidebar-far-left" class="col-ld-3 col-md-3 col-sm-12 sidebar sidebar-left">
+						<div id='sidebar-far-left-inner' class="sidebar-inner sidebar-left-inner">
+							{{ sidebar_far_left }}
+						</div>
+					</div>
+				{% endif %}
+
+				<div id="content-center" class="{{ content_center_classes }}">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-xs-12">
+								{% block page_title %}
+									{% if title %}
+										<h1>{{title}}</h1>
+									{% endif %}
+								{% endblock %}
+							</div>
+						</div>
+						<div class="row">
+							{% if sidebar_left %}
+								{# The left sidebar is under the site title #}
+								<div id="sidebar-left" class="col-ld-3 col-md-3 col-sm-12 sidebar sidebar-left">
+									<div id='sidebar-left-inner' class="sidebar-inner sidebar-left-inner">
+										{{ sidebar_left }}
+									</div>
+								</div>
+							{% endif %}
+							<div id="main-content" class="{{ content_classes }}">
+								{% block content %}
+									Sorry, no content
+								{% endblock %}
+							</div>
+							{% if sidebar_right %}
+								{# The right sidebar is under the site title #}
+								<div id="sidebar-right" class="col-ld-3 col-md-3 col-sm-12 sidebar sidebar-right">
+									<div id='sidebar-right-inner' class="sidebar-inner sidebar-right-inner">
+										{{ sidebar_right }}
+									</div>
+								</div>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+				{% if sidebar_far_right %}
+					{# The far left sidebar is not under the site title #}
+					<div id="sidebar-far-right" class="col-ld-3 col-md-3 col-sm-12 sidebar sidebar-right">
+						<div id='sidebar-far-right-inner' class="sidebar-inner sidebar-right-inner">
+							{{ sidebar_far_right }}
+						</div>
+					</div>
+				{% endif %}
 			</div>
-			{% if sidebar %}
-				<aside class="layout-sidebar">
-					{{sidebar}}
-				</aside>
-			{% endif %}
 		</section>
 
 		{% block footer %}
-			<footer id="footer">
-				{% include 'regions/footer.twig' %}
-			</footer>
+			{% include 'regions/footer.twig' %}
 			{{ function('wp_footer') }}
 		{% endblock %}
 	</body>

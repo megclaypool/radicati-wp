@@ -29,7 +29,8 @@ class StarterSite extends TimberSite {
         add_theme_support('starter-content', array(
             'posts' => array(
                'home' => array(
-                   'template' => 'template-home',
+                   'template' => 'template-home.php',
+                   'post_type' => 'page',
                ),
                'about',
                'contact',
@@ -79,11 +80,60 @@ class StarterSite extends TimberSite {
 
     function add_to_context( $context ) {
         $context['footer_menu'] = new TimberMenu("footer_menu");
-        $context['primary_menu'] = new TimberMenu("primary_menu");
+        $context['primary_menu'] = new TimberMenu("primary_navigation");
         $context['mobile_menu'] = new TimberMenu("mobile_menu");
         $context['header_menu'] = new TimberMenu('header_menu');
+        $context['social_menu'] = new TimberMenu('social_links');
         $context['site'] = $this;
-        return $context;
+
+
+        //Add the sidebars to the context - dynamic sidebars are also called widgets
+        //$context['social_links'] = Timber::get_widgets('social_links');
+        $context['copyright'] = Timber::get_widgets('copyright');
+        $context['footer'] = Timber::get_widgets('footer');
+
+        $context['sidebar_far_left'] = Timber::get_widgets('sidebar-far-left');
+        $context['sidebar_left'] = Timber::get_widgets('sidebar-left');
+        $context['sidebar_right'] = Timber::get_widgets('sidebar-right');
+        $context['sidebar_far_right'] = Timber::get_widgets('sidebar-far-right');
+
+        $outside_bars = 0;
+        if($context['sidebar_far_left'])
+            $outside_bars++;
+        if($context['sidebar_far_right'])
+            $outside_bars++;
+
+        switch($outside_bars) {
+            case 0:
+                $context['content_center_classes'] = "col-xs-12";
+                break;
+            case 1:
+                $context['content_center_classes'] = "col-lg-9 col-md-9 col-sm-12";
+                break;
+            case 2:
+                $context['content_center_classes'] = "col-lg-6 col-md-6 col-sm-12";
+                break;
+        }
+
+        $inside_bars = 0;
+        if($context['sidebar_left'])
+            $inside_bars++;
+        if($context['sidebar_right'])
+            $inside_bars++;
+
+        switch($outside_bars) {
+            case 0:
+                $context['content_classes'] = "col-xs-12";
+                break;
+            case 1:
+                $context['content_classes'] = "col-lg-9 col-md-9 col-sm-12";
+                break;
+            case 2:
+                $context['content_classes'] = "col-lg-6 col-md-6 col-sm-12";
+                break;
+        }
+
+      return $context;
     }
 
     function myfoo( $text ) {

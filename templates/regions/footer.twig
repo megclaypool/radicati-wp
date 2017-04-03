@@ -10,18 +10,14 @@
                     {{ sidebar_footer }}
                 </div>
                 <div class="footer-social">
-                    <span class="footer-social-title">Get Social</span>
-                    <a href="{{ facebook_link }}" class="sm sm-facebook"><i class="fa fa-facebook"></i></a>
-                    <a href="{{ twitter_link }}" class="sm sm-twitter"><i class="fa fa-twitter"></i></a>
-                    <a href="{{ instagram_link }}" class="sm sm-instagram"><i class="fa fa-instagram"></i></a>
-                    <a href="{{ linkedin_link }}" class="sm sm-linkedin"><i class="fa fa-linkedin"></i></a>
-                    <a href="{{ youtube_link }}" class="sm sm-youtube"><i class="fa fa-youtube-play"></i></a>
+                    <span class="footer-social-title">{{  __('Social Media') }}</span>
+                    {% include "menu/menu-social.twig" with {'menu': social_menu.get_items} %}
                 </div>
             </div>
         </div>
         <div class="scroll"><a href="#"><i class="fa fa-chevron-up"></i><br/>top</a></div>
         <div class="copyright">
-            &copy; 2017 {{ sidebar_copyright }}
+            {{ copyright }}
         </div>
     </div>
 </footer>

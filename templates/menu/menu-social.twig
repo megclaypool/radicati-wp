@@ -1,0 +1,29 @@
+{% if menu %}
+    <ul class="social-links-menu">
+        {% for item in menu %}
+            {% if "instagram" in item.get_link %}
+                {% set fa_class = "fa-instagram" %}
+            {% elseif "twitter" in item.get_link %}
+                {% set fa_class = "fa-twitter" %}
+            {% elseif "facebook" in item.get_link %}
+                {% set fa_class = "fa-facebook" %}
+            {% elseif "youtube" in item.get_link %}
+                {% set fa_class = "fa-youtube" %}
+            {% elseif "yelp" in item.get_link %}
+                {% set fa_class = "fa-yelp" %}
+            {% else %}
+                {% set fa_class = null %}
+            {% endif %}
+
+            {% if fa_class %}
+                <li class="{{item.classes | join(' ')}}">
+                    <a href="{{item.get_link}}"><i class="fa {{ fa_class }}"></i></a>
+                </li>
+            {% else %}
+                <li class="{{item.classes | join(' ')}}">
+                    <a href="{{item.get_link}}">{{ item.title }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endif %}

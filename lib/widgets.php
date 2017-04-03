@@ -5,8 +5,35 @@
  */
 function widgets_init() {
     register_sidebar( array (
-        'name'          => 'Primary',
-        'id'            => 'sidebar-primary',
+        'name'          => __('Far Left'),
+        'id'            => 'sidebar-far-left',
+        'before_widget' => '<section class="widget %1$s %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3>',
+        'after_title'   => '</h3>'
+    ));
+
+    register_sidebar( array (
+        'name'          => __('Left'),
+        'id'            => 'sidebar-left',
+        'before_widget' => '<section class="widget %1$s %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3>',
+        'after_title'   => '</h3>'
+    ));
+
+    register_sidebar( array (
+        'name'          => __('Right'),
+        'id'            => 'sidebar-right',
+        'before_widget' => '<section class="widget %1$s %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3>',
+        'after_title'   => '</h3>'
+    ));
+
+    register_sidebar( array (
+        'name'          => __('Far Right'),
+        'id'            => 'sidebar-far-right',
         'before_widget' => '<section class="widget %1$s %2$s">',
         'after_widget'  => '</section>',
         'before_title'  => '<h3>',
@@ -28,12 +55,5 @@ function widgets_init() {
         'before_widget' => '<div>',
         'after_widget'  => '</div>',
     ) );
-
-    register_sidebar( array(
-        'name'          => __('Social Links', 'radicati'),
-        'id'            => 'social-links',
-        'before_widget' => '<div class="widget">',
-        'after_widget'  => '</div>',
-    ));
 }
 add_action('widgets_init', 'widgets_init');
