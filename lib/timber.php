@@ -64,7 +64,7 @@ class StarterSite extends TimberSite {
         ));
 
         add_filter( 'timber_context', array( $this, 'add_to_context' ) );
-        add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
+        //add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
         add_action( 'init', array( $this, 'register_post_types' ) );
         add_action( 'init', array( $this, 'register_taxonomies' ) );
         parent::__construct();
@@ -79,12 +79,19 @@ class StarterSite extends TimberSite {
     }
 
     function add_to_context( $context ) {
+        //Add the site logo to the context
+        $custom_logo_id = get_theme_mod( 'custom_logo' );
+        $context['header_logo'] = wp_get_attachment_image_src( $custom_logo_id , 'header-logo')[0];
+        $context['footer_logo'] = wp_get_attachment_image_src( $custom_logo_id , 'footer-logo')[0];
+
         $context['footer_menu'] = new TimberMenu("footer_menu");
         $context['primary_menu'] = new TimberMenu("primary_navigation");
         $context['mobile_menu'] = new TimberMenu("mobile_menu");
         $context['header_menu'] = new TimberMenu('header_menu');
         $context['social_menu'] = new TimberMenu('social_links');
         $context['site'] = $this;
+
+        //print_r($this);
 
 
         //Add the sidebars to the context - dynamic sidebars are also called widgets
@@ -136,17 +143,17 @@ class StarterSite extends TimberSite {
       return $context;
     }
 
-    function myfoo( $text ) {
-        $text .= ' bar!';
-        return $text;
-    }
-
-    function add_to_twig( $twig ) {
-        /* this is where you can add your own functions to twig */
-        $twig->addExtension( new Twig_Extension_StringLoader() );
-        $twig->addFilter('myfoo', new Twig_SimpleFilter('myfoo', array($this, 'myfoo')));
-        return $twig;
-    }
+//    function myfoo( $text ) {
+//        $text .= ' bar!';
+//        return $text;
+//    }
+//
+//    function add_to_twig( $twig ) {
+//        /* this is where you can add your own functions to twig */
+//        $twig->addExtension( new Twig_Extension_StringLoader() );
+//        $twig->addFilter('myfoo', new Twig_SimpleFilter('myfoo', array($this, 'myfoo')));
+//        return $twig;
+//    }
 }
 
 new StarterSite();

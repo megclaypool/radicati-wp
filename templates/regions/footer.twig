@@ -1,23 +1,36 @@
-<footer id="footer" class="content-info container-fluid" role="contentinfo">
-    <div id="footer-inner">
-        <div class="row">
-            <div class="col-md-2 col-lg-3 footer-info">
-                <a href="/"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/contra-costa-college-logo-small.png" alt="<?php echo __('Contra Costa College Footer Logo'); ?>"/></a>
-                <div id="footer-phone-number" class="phone-number">(som) enu-mber</div>
-            </div>
-            <div class="col-xs-12 col-md-10 col-lg-9">
-                <div class="row footer-menus">
-                    {{ sidebar_footer }}
+<footer id="footer" class="content-info" role="contentinfo">
+    <div id="footer-outer">
+        <div id="footer-inner" class="container-fluid">
+            <div class="row main-footer">
+                <div class="col-md-2 col-lg-3 footer-info">
+                    <a href="/"><img src="{{ footer_logo }}" alt="{{ site.title }}"/></a>
+                    <div id="footer-address">
+                        123 Fake Street<br />
+                        Some City, CA
+                    </div>
+                    <div id="footer-phone-number" class="phone-number"><a href="tel:8005551212">800.555.1212</a></div>
                 </div>
-                <div class="footer-social">
-                    <span class="footer-social-title">{{  __('Social Media') }}</span>
-                    {% include "menu/menu-social.twig" with {'menu': social_menu.get_items} %}
+                <div class="col-xs-12 col-md-10 col-lg-9">
+                    <div class="row">
+                        <div id="footer-social" class="col-xs-12">
+                            {% include "menu/menu-social.twig" with {'menu': social_menu.get_items} %}
+                        </div>
+                        <div id="footer-menus" class="col-xs-12 col-md-8">
+                            {% include "menu/menu.twig" with {'menu': footer_menu.get_items} %}
+                        </div>
+                        <div id="footer-widgets" class="col-xs-12 col-md-4">
+                            {{ footer }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="scroll"><a href="#"><i class="fa fa-chevron-up"></i><br/>top</a></div>
-        <div class="copyright">
-            {{ copyright }}
+    </div>
+    <div id="copyright-outer" class="container-fluid">
+        <div class="row">
+            <div id="copyright" class="col-xs-12">
+                {{ copyright }}
+            </div>
         </div>
     </div>
 </footer>

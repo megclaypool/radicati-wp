@@ -1,0 +1,23 @@
+[
+  {
+    "url": "http://www.google.com",
+    "image": "http://placehold.it/1400x400?text=Slide+1",
+    "image_mobile": "http://placehold.it/600x300?text=Slide+1+Mobile",
+    "title": "This is Slide One",
+    "teaser": "This is the teaser text on slide one! It is awesome and longer than the title!!"
+  },
+  {
+    "url": "http://www.google.com",
+    "image": "http://placehold.it/1400x400?text=Slide+2",
+    "image_mobile": "http://placehold.it/600x300?text=Slide+2+Mobile",
+    "title": "This is Slide Two",
+    "teaser": "This is the teaser text on slide two! It is awesome and longer than the title!!"
+  },
+  {
+    "url": "http://www.google.com",
+    "image": "http://placehold.it/1400x400?text=Slide+3",
+    "image_mobile": "http://placehold.it/600x300?text=Slide+3+Mobile",
+    "title": "This is Slide Three",
+    "teaser": "This is the teaser text on slide three! It is awesome and longer than the title!!"
+  }
+]

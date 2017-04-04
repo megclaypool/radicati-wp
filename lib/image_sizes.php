@@ -14,3 +14,7 @@ add_image_size('block_1', 475*1.5, 449*1.5, true);
 add_image_size('block_2', 958*1.5, 449*1.5, true);
 add_image_size('block_3', 1441*1.5, 449*1.5, true);
 add_image_size('listing-page', 265*1.5, 265*1.5, true);
+
+
+add_image_size('header-logo', 300, 300, false);
+add_image_size('footer-logo', 200, 200, false);

@@ -17,11 +17,13 @@
 
             {% if fa_class %}
                 <li class="{{item.classes | join(' ')}}">
-                    <a href="{{item.get_link}}"><i class="fa {{ fa_class }}"></i></a>
+                    <a class="social-link social-icon" href="{{item.get_link}}">
+                        <i class="fa {{ fa_class }}"></i><span class="sr-only">{{ item.title }}</span>
+                    </a>
                 </li>
             {% else %}
                 <li class="{{item.classes | join(' ')}}">
-                    <a href="{{item.get_link}}">{{ item.title }}</a>
+                    <a class="social-link social-no-icon" href="{{item.get_link}}">{{ item.title }}</a>
                 </li>
             {% endif %}
         {% endfor %}

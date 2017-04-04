@@ -1,6 +1,14 @@
 {% extends "system/base.twig" %}
 
+{% block hero_content %}
+    {% include "widgets/slider-owl.twig" %}
+{% endblock %}
+
 {% block content %}
+    {% for slide in slider %}
+        {{ slide.title }}
+    {% endfor %}
+
     {{ post.content }}
     {{ post.title }}
     <?php if(get_field('banner_slider')): ?>

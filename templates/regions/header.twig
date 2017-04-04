@@ -1,18 +1,29 @@
-<header id="header" class="container-fluid">
+<header id="header">
     {% block header %}
-        <div class="wrapper">
-            <div class="row">
-                <div class="col-lg-2 col-md-4 col-sm-12">
-                    <h1 class="hdr-logo" role="banner">
-                        <a class="hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
-                    </h1>
+        <div id="header-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <h2 class="logo">
+                            <a class="logo-link" href="{{site.url}}" rel="home">
+                                {% if header_logo %}
+                                    <img id='header-logo-image' src="{{ header_logo }}" alt="{{ site.name }}" />
+                                {% else %}
+                                    {{site.name}}
+                                {% endif %}
+                            </a>
+                        </h2>
+                    </div>
+                    <div class="col-lg-8 col-md-8 sm-hidden xs-hidden">
+                        TEST
+                    </div>
                 </div>
             </div>
         </div>
-        <nav id="primary-menu" class='row' role="navigation">
-            <div class="col-xs-12">
+        <div id="primary-menu-wrapper">
+            <nav id="primary-menu" class='row' role="navigation">
                 {% include "menu/menu-primary.twig" with {'menu': primary_menu.get_items} %}
-            </div>
-        </nav>
+            </nav>
+        </div>
     {% endblock %}
 </header>

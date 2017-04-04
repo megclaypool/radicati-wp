@@ -8,13 +8,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Project name</a>
             </div>
             <div id="primary-menu" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     {% for item in menu %}
                         <li class="{{item.classes | join(' ')}}">
-                            <a href="{{item.get_link}}">{{item.title}}</a>
+                            <a class='menu-item-link' href="{{item.get_link}}">{{item.title}}</a>
                             {% include "menu/menu-submenu.twig" with {'menu': item.get_children} %}
                         </li>
                     {% endfor %}

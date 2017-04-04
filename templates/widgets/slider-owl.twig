@@ -1,0 +1,43 @@
+{% if slider %}
+    <div class="slider-wrapper">
+        <div class="owl-carousel">
+            {% for slide in slider %}
+                <div class="item">
+                    <div class="slide-img">
+                        <a href="{{ slide.url }}" >
+                            {% if is_mobile %}
+                                <img src="{{ slide.image_mobile }}" alt="{{ slide.title }} link" />
+                            {% else %}
+                                <img src="{{ slide.image }}" alt="{{ slide.title }} link" />
+                            {% endif %}
+                        </a>
+                        <div class="slide-text">
+                            <h2 class="slide-title">
+                                <a href="{{ slide.url }}" >{{ slide.title }}</a>
+                            </h2>
+                            <div class="slide-blurb hidden-xs">
+                                <a href="{{ slide.url }}" >{{ slide.teaser }}</a>
+                            </div>
+                            <div class="slide-link hidden-xs">
+                                <a href="{{ slide.url }}" class="btn pink">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}
+<script>
+    //After configuring this content move to the main.js file
+    (function($)
+    {
+        $(window).ready(function() {
+            //slider
+            $('.owl-carousel').owlCarousel({
+                items: 1,
+                loop: true
+            });
+        });
+    })(jQuery);
+</script>

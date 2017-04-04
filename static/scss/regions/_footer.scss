@@ -1,0 +1,60 @@
+@import "../variables";
+
+#footer-outer {
+  background-color: lightgrey;
+  padding-top: 45px;
+}
+
+#footer-menus > ul {
+
+  // Main links
+  > li.menu-item > a, > li.menu-item > a:hover {
+    color: white;
+    text-decoration: none;
+  }
+
+  > li.menu-item {
+    list-style-type: none;
+    float: left;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    // Child menu items
+    > ul {
+      padding-left: 0;
+      // Margin set here because it's likely that a menu item will be longer than the parent item.
+      margin-right: 45px;
+
+      li.menu-item {
+        list-style-type: none;
+        text-transform: none;
+
+        a, a:hover {
+          text-decoration: none;
+          color: red;
+        }
+      }
+    }
+  }
+}
+
+#footer-social {
+  padding-bottom: 15px;
+
+  li.menu-item {
+    list-style-type: none;
+    float: left;
+    margin-right: 15px;
+
+    a.social-link {
+      font-size: 35px;
+      line-height: 35px;
+      display: inline-block;
+      color: darkgray;
+    }
+
+    a.social-link:hover {
+      color: darkblue;
+    }
+  }
+}
