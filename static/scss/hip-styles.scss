@@ -1,16 +1,31 @@
+// 1: Libraries and External Stylesheets
 @import "bootstrap";
 @import "font-awesome";
-
 //CDN's Import
 //@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/assets/owl.carousel.min.css');
 
-
+// 2: Variables and Global Declarations
 @import "variables";
+@import "global";
+
+// 3: Site-wide tags and basic styles
 @import "atoms/tags";
 
+// 4: Widgets
+@import "widgets/inline_button";
+@import "widgets/inline_quote";
+@import "widgets/slider-owl";
+@import "widgets/highlight-item";
+@import "widgets/pagination";
+
+// 5: Page Regions
 @import "regions/footer";
 @import "regions/header";
 
-@import "global";
+// 6: Templates
+@import "templates/listing";
+
+
+

@@ -1,0 +1,37 @@
+.pagination {
+  text-align: center;
+
+  .prev, .next {
+    display: inline-block;
+  }
+
+  ul.pages {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: inline-block;
+  }
+
+  .pagination-item {
+    float: left;
+  }
+
+  .pagination-link, .pagination-active {
+    padding: 5px 10px;
+    display: inline-block;
+    border: 1px solid black;
+    border-right: 0;
+    background-color: lightgrey;
+    text-decoration: none;
+  }
+
+  .pagination-active {
+    background-color: darkblue;
+    color: white;
+  }
+
+  .next {
+    border-right: 1px solid black;
+  }
+}

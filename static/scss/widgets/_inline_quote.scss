@@ -2,12 +2,18 @@ $inline-quote-border-color: black;
 $inline-quote-background-color: gray;
 
 
-
+blockquote,
 .inline-quote {
+  display: block;
+  font-size: 20px;
+  color: black;
+  font-style: italic;
+  line-height: 1.5;
+  padding: 20px 30px;
+  margin: 15px 0;
+  border: 0 none;
 
   .quote {
-
-
     &:before {
       content: open-quote;
     }
@@ -18,7 +24,8 @@ $inline-quote-background-color: gray;
   }
 
   .quote-byline {
-
+    margin-top: 17px;
+    font-size: 14px;
   }
 
 }

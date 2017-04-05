@@ -41,7 +41,7 @@ function radicati_assets() {
     }
 
     // Site javascript - depends on jquery
-    wp_enqueue_script('site', $static_base . '/js/site.js', array('jquery'), null, true);
+    wp_enqueue_script('site', $static_base . '/js/site.min.js', array('jquery'), null, true);
 
 
     // Site CSS

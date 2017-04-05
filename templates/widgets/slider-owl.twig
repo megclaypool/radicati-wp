@@ -4,22 +4,20 @@
             {% for slide in slider %}
                 <div class="item">
                     <div class="slide-img">
-                        <a href="{{ slide.url }}" >
+                        {# Uncomment if the entire slide should be a link #}
+                        {#<a href="{{ slide.url }}" >#}
                             {% if is_mobile %}
-                                <img src="{{ slide.image_mobile }}" alt="{{ slide.title }} link" />
+                                <img src="{{ slide.image_mobile }}" alt="{{ slide.title }}" />
                             {% else %}
-                                <img src="{{ slide.image }}" alt="{{ slide.title }} link" />
+                                <img src="{{ slide.image }}" alt="{{ slide.title }}" />
                             {% endif %}
-                        </a>
+                        {#</a>#}
                         <div class="slide-text">
                             <h2 class="slide-title">
                                 <a href="{{ slide.url }}" >{{ slide.title }}</a>
                             </h2>
                             <div class="slide-blurb hidden-xs">
                                 <a href="{{ slide.url }}" >{{ slide.teaser }}</a>
-                            </div>
-                            <div class="slide-link hidden-xs">
-                                <a href="{{ slide.url }}" class="btn pink">Read More</a>
                             </div>
                         </div>
                     </div>

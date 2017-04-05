@@ -1,0 +1,18 @@
+{% if highlights %}
+    <div class="row">
+        {% for highlight in highlights %}
+            {% if not highlight_item_class %}
+                {% set highlight_item_class = "col-lg-3 col-md-4 col-sm-6 col-xs-12" %}
+            {% endif %}
+            <div class="highlight-item {{ highlight_item_class }}">
+                <a href="{{ url }}" title="{{ highlight.title }}">
+                    <div class="highlight-image-wrapper">
+                        <img class="highlight-image" src="{{ highlight.image }}" {{ (highlight.alt_text) ? "alt='"+highlight.alt_text+"'": ""  }} />
+                    </div>
+                    <h3><a href="{{ highlight.url }}">{{ highlight.title }}</a></h3>
+                    <p>{{ highlight.teaser }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

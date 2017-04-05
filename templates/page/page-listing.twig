@@ -1,0 +1,14 @@
+{% extends "page/page.twig" %}
+
+{% block post_content %}
+    {% for post in posts %}
+        {% include ['teasers/tease-'~post.post_type~'.twig', 'teasers/tease.twig'] %}
+    {% endfor %}
+    {% if pagination %}
+        <div class="row">
+            <div class="col-xs-12 text-right">
+                {% include "widgets/pagination.twig" %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

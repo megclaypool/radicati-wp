@@ -5,7 +5,7 @@
  */
 
 function inline_quote($atts) {
-    shortcode_atts(array(
+    $atts = shortcode_atts(array(
         'quote' => 'Adversity is all around us, but the greatest adversity we face is our own doubts.',
         'byline' => 'Jason Neumark Mickela'
     ), $atts);
@@ -15,7 +15,7 @@ add_shortcode('quote', 'inline_quote');
 
 
 function inline_button($atts) {
-    shortcode_atts(array(
+    $atts = shortcode_atts(array(
         'link' => 'https://www.google.com',
         'color' => 'orange',
         'text' => 'Inline Button!'
