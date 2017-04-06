@@ -1,3 +1,5 @@
+{# Styled by: widgets/_slider-owl.scss #}
+{# Javascript: js/base/widgets/slider-owl.js #}
 {% if slider %}
     <div class="slider-wrapper">
         <div class="owl-carousel">
@@ -26,16 +28,3 @@
         </div>
     </div>
 {% endif %}
-<script>
-    //After configuring this content move to the main.js file
-    (function($)
-    {
-        $(window).ready(function() {
-            //slider
-            $('.owl-carousel').owlCarousel({
-                items: 1,
-                loop: true
-            });
-        });
-    })(jQuery);
-</script>
