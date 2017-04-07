@@ -1,0 +1,14 @@
+<div class="related-items">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2>{{ __('Related Posts') }}</h2>
+        </div>
+    </div>
+    <div class="row">
+        {% for item in post.get_field('related_content') %}
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                {% include ['relationship/items/relationship-'~item.post_type~'.twig', 'relationship/items/relationship.twig'] %}
+            </div>
+        {% endfor %}
+    </div>
+</div>

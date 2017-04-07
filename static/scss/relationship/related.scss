@@ -1,0 +1,14 @@
+@import "../variables";
+
+.related-items {
+  background-color: lightgrey;
+
+  .relationship-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .relationship-item {
+    min-height: 350px;
+  }
+}

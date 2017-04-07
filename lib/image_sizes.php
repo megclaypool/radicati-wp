@@ -11,5 +11,6 @@
 add_image_size('header-logo', 300, 300, false);
 add_image_size('footer-logo', 200, 200, false);
 add_image_size('listing-item', 265*1.5, 265*1.5, true);
+add_image_size('related-item', 265*1.5, 265*1.5, false);
 
 //Extra one-off sizes should use the size as the name: ex. 300x255

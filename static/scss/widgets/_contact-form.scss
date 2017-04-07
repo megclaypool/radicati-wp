@@ -1,0 +1,13 @@
+@import "../variables";
+
+.contact-form {
+  label {
+    display: none;
+
+  }
+
+  .gfield_label_before_complex,
+  #field_1_4 label {
+    display: inherit;
+  }
+}
