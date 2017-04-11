@@ -7,7 +7,10 @@
                         <h2 class="logo">
                             <a class="logo-link" href="{{site.url}}" rel="home">
                                 {% if header_logo %}
-                                    <img id='header-logo-image' src="{{ header_logo }}" alt="{{ site.name }}" />
+                                    <img src="{{ header_logo.src | resize('header-logo') }}"
+                                         srcset="{{ header_logo.src | resize('header-logo') | retina(1) }} 1x,
+                                                 {{ header_logo.src | resize('header-logo2x') | retina(2) }} 2x" }}
+                                         alt="{{ site.name }}" />
                                 {% else %}
                                     {{site.name}}
                                 {% endif %}

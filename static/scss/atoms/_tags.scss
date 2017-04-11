@@ -5,3 +5,14 @@
 a {
   color: green;
 }
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+input[type=submit], input[type=button] {
+  border: 0;
+  background-color: lightgray;
+  color: white;
+}

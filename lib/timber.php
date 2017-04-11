@@ -26,6 +26,10 @@ class StarterSite extends TimberSite {
             'flex-width'  => false,
         ) );
 
+        if( function_exists('acf_add_options_page') ) {
+            acf_add_options_page();
+        }
+
         add_theme_support('starter-content', array(
             'posts' => array(
                'home' => array(
@@ -64,7 +68,7 @@ class StarterSite extends TimberSite {
         ));
 
         add_filter( 'timber_context', array( $this, 'add_to_context' ) );
-        //add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
+        add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
         add_action( 'init', array( $this, 'register_post_types' ) );
         add_action( 'init', array( $this, 'register_taxonomies' ) );
         parent::__construct();
@@ -81,8 +85,10 @@ class StarterSite extends TimberSite {
     function add_to_context( $context ) {
         //Add the site logo to the context
         $custom_logo_id = get_theme_mod( 'custom_logo' );
-        $context['header_logo'] = wp_get_attachment_image_src( $custom_logo_id , 'header-logo')[0];
-        $context['footer_logo'] = wp_get_attachment_image_src( $custom_logo_id , 'footer-logo')[0];
+        $context['site_logo'] = $custom_logo_id;
+
+        //Add header images - if defined
+        $context['options'] = get_fields('option');
 
         $context['footer_menu'] = new TimberMenu("footer_menu");
         $context['primary_menu'] = new TimberMenu("primary_navigation");
@@ -90,8 +96,6 @@ class StarterSite extends TimberSite {
         $context['header_menu'] = new TimberMenu('header_menu');
         $context['social_menu'] = new TimberMenu('social_links');
         $context['site'] = $this;
-
-        //print_r($this);
 
 
         //Add the sidebars to the context - dynamic sidebars are also called widgets
@@ -148,12 +152,27 @@ class StarterSite extends TimberSite {
 //        return $text;
 //    }
 //
-//    function add_to_twig( $twig ) {
-//        /* this is where you can add your own functions to twig */
-//        $twig->addExtension( new Twig_Extension_StringLoader() );
-//        $twig->addFilter('myfoo', new Twig_SimpleFilter('myfoo', array($this, 'myfoo')));
-//        return $twig;
-//    }
+
+    function responsive_img($image, $image_size, $alt = "") {
+        // Use sprintf to fill in values, easier to read than assembling
+        // tag spread throughout code.
+        $template = '<img src="%s" srcset="%s, %s x2" alt="%s" />';
+
+        // If an image id is specified, use wp_get_attachment_image_src
+        if(is_int($image)) {
+            $normal = wp_get_attachment_image_src($image, $image_size)[0];
+            $high_res = wp_get_attachment_image_src($image, $image_size . "x2")[0];
+        }
+
+        return sprintf($template, $normal, $normal, $high_res, $alt);
+    }
+
+    function add_to_twig( $twig ) {
+        /* this is where you can add your own functions to twig */
+        //$twig->addExtension( new Twig_Extension_StringLoader() );
+        $twig->addFilter('responseive_img', new Twig_SimpleFilter('responsive_img', array($this, 'responsive_img')));
+        return $twig;
+    }
 }
 
 new StarterSite();

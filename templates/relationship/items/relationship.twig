@@ -1,9 +1,15 @@
 <div class="relationship-item relationship-item-{{ item.type }}">
     <div class="relationship-item-inner">
         <a href="{{ item.link }}">
-            <div class="relationship-image-wrapper">
-                <img class="relationship-image" src="{{ item.thumbnail.src('related-item') }}" {{ (item.alt_text) ? "alt='"+item.alt_text+"'": ""  }} />
-            </div>
+            {% if item.thumbnail %}
+                <div class="relationship-image-wrapper">
+                    <img class="relationship-image"
+                        src="{{ item.thumbnail | resize('related-item') }}"
+                        srcset="{{ item.thumbnail | resize('related-item') | retina(1) }} 1x,
+                                {{ item.thumbnail | resize('related-item2x') | retina(2) }} 2x"
+                        alt="{{ item.alt }}" />
+                </div>
+            {% endif %}
             <h3>{{ item.title }}</h3>
         </a>
     </div>

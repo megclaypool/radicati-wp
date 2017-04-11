@@ -4,7 +4,11 @@
 		{% if post.get_thumbnail %}
 			<div class="col-lg-2 col-md-3 col-sm-12">
 				<a class="teaser-image-link" href="{{ post.link }}">
-					<img class='teaser-image' src="{{ post.thumbnail.src('listing-item') }}" />
+					<img class="teaser-image"
+						 src="{{ post.thumbnail | resize('listing-item') }}"
+						 srcset="{{ post.thumbnail | resize('listing-item') | retina(1) }} 1x,
+                            {{ post.thumbnail | resize('listing-item2x') | retina(2) }} 2x"
+                            alt="{{ post.thumbnail.alt }}" />
 				</a>
 			</div>
 			<div class="col-lg-10 col-md-9 col-sm-12">

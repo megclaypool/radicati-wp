@@ -3,7 +3,12 @@
         <div id="footer-inner" class="container-fluid">
             <div class="row main-footer">
                 <div class="col-md-2 col-lg-3 footer-info">
-                    <a href="/"><img src="{{ footer_logo }}" alt="{{ site.title }}"/></a>
+                    <a href="/">
+                        <img src="{{ header_logo.src | resize('footer-logo') }}" alt="{{ site.title }}"
+                             srcset="{{ header_logo.src | resize('footer-logo') | retina(1) }} 1x,
+                                     {{ header_logo.src | resize('footer-logo2x') | retina(2) }} 2x" }}
+                        />
+                    </a>
                     <div id="footer-address">
                         123 Fake Street<br />
                         Some City, CA
