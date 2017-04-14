@@ -4,9 +4,9 @@
             <div class="row main-footer">
                 <div class="col-md-2 col-lg-3 footer-info">
                     <a href="/">
-                        <img src="{{ header_logo.src | resize('footer-logo') }}" alt="{{ site.title }}"
-                             srcset="{{ header_logo.src | resize('footer-logo') | retina(1) }} 1x,
-                                     {{ header_logo.src | resize('footer-logo2x') | retina(2) }} 2x" }}
+                        <img src="{{ site_logo | resize('footer-logo') }}" alt="{{ site.title }}"
+                             srcset="{{ site_logo | resize('footer-logo') | retina(1) }} 1x,
+                                     {{ site_logo | resize('footer-logo2x') | retina(2) }} 2x" }}
                         />
                     </a>
                     <div id="footer-address">

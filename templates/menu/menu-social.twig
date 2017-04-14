@@ -11,6 +11,8 @@
                 {% set fa_class = "fa-youtube" %}
             {% elseif "yelp" in item.get_link %}
                 {% set fa_class = "fa-yelp" %}
+            {% elseif "mailto:" in item.get_link %}
+                {% set fa_class = "fa-envelope" %}
             {% else %}
                 {% set fa_class = null %}
             {% endif %}

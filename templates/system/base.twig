@@ -42,16 +42,15 @@
 				{% endif %}
 
 				<div id="content-center" class="{{ content_center_classes }}">
-					<div class="">
-						<div class="row">
-							<div class="col-xs-12">
-								{% block page_title %}
-									{% if title %}
-										<h1>{{title}}</h1>
-									{% endif %}
-								{% endblock %}
-							</div>
+					<div class="row">
+						<div class="col-xs-12">
+							{% block page_title %}
+								{% if title %}
+									<h1>{{title}}</h1>
+								{% endif %}
+							{% endblock %}
 						</div>
+					</div>
 						<div class="row">
 							{% if sidebar_left %}
 								{# The left sidebar is under the site title #}
@@ -75,7 +74,7 @@
 								</div>
 							{% endif %}
 						</div>
-					</div>
+
 				</div>
 				{% if sidebar_far_right %}
 					{# The far left sidebar is not under the site title #}

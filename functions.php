@@ -15,7 +15,8 @@ require_once  'lib/widgets.php';
 // Image sizes go in here
 require_once 'lib/image_sizes.php';
 
-
 // Menus go in here
-require_once 'lib/menus.php';
+//require_once 'lib/menus.php';
 
+// All actions should go in here
+require_once 'lib/actions.php';

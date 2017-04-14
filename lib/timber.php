@@ -30,43 +30,6 @@ class StarterSite extends TimberSite {
             acf_add_options_page();
         }
 
-        add_theme_support('starter-content', array(
-            'posts' => array(
-               'home' => array(
-                   'template' => 'template-home.php',
-                   'post_type' => 'page',
-               ),
-               'about',
-               'contact',
-            ),
-            'options' => array(
-                'show_on_front' => 'page',
-                'page_on_front' => '{{home}}',
-                'page_for_posts' => '{{blog}}',
-            ),
-
-            'nav_menus' => array(
-                'top' => array(
-                    'name' => __( 'Top Menu', 'radicati' ),
-                    'items' => array(
-                        'page_home',
-                        'page_about',
-                        'page_contact',
-                    ),
-                ),
-                'social' => array(
-                    'name' => __( 'Social Links Menu', 'radicati' ),
-                    'items' => array(
-                        'link_facebook',
-                        'link_twitter',
-                        'link_instagram',
-                        'link_email',
-                        'link_sharethis',
-                    ),
-                ),
-            ),
-        ));
-
         add_filter( 'timber_context', array( $this, 'add_to_context' ) );
         add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
         add_action( 'init', array( $this, 'register_post_types' ) );
@@ -85,16 +48,16 @@ class StarterSite extends TimberSite {
     function add_to_context( $context ) {
         //Add the site logo to the context
         $custom_logo_id = get_theme_mod( 'custom_logo' );
-        $context['site_logo'] = $custom_logo_id;
+        $context['site_logo'] = new TimberImage($custom_logo_id);
 
         //Add header images - if defined
         $context['options'] = get_fields('option');
 
-        $context['footer_menu'] = new TimberMenu("footer_menu");
-        $context['primary_menu'] = new TimberMenu("primary_navigation");
-        $context['mobile_menu'] = new TimberMenu("mobile_menu");
-        $context['header_menu'] = new TimberMenu('header_menu');
-        $context['social_menu'] = new TimberMenu('social_links');
+        $context['footer_menu'] = new TimberMenu("footer");
+        $context['primary_menu'] = new TimberMenu("primary");
+        $context['mobile_menu'] = new TimberMenu("mobile");
+        $context['header_menu'] = new TimberMenu('header');
+        $context['social_menu'] = new TimberMenu('social');
         $context['site'] = $this;
 
 

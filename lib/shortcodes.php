@@ -4,6 +4,8 @@
  * Every shortcode defined here should have its own file in static/scss/widgets/_{shortcode}.scss
  */
 
+// @TODO: Add styling and styling hints for these.
+
 function inline_quote($atts) {
     $atts = shortcode_atts(array(
         'quote' => 'Adversity is all around us, but the greatest adversity we face is our own doubts.',

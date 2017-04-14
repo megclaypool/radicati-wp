@@ -7,9 +7,9 @@
                         <h2 class="logo">
                             <a class="logo-link" href="{{site.url}}" rel="home">
                                 {% if header_logo %}
-                                    <img src="{{ header_logo.src | resize('header-logo') }}"
-                                         srcset="{{ header_logo.src | resize('header-logo') | retina(1) }} 1x,
-                                                 {{ header_logo.src | resize('header-logo2x') | retina(2) }} 2x" }}
+                                    <img src="{{ site_logo | resize('header-logo') }}"
+                                         srcset="{{ site_logo | resize('header-logo') | retina(1) }} 1x,
+                                                 {{ site_logo | resize('header-logo2x') | retina(2) }} 2x" }}
                                          alt="{{ site.name }}" />
                                 {% else %}
                                     {{site.name}}
@@ -18,7 +18,7 @@
                         </h2>
                     </div>
                     <div class="col-lg-8 col-md-8 sm-hidden xs-hidden">
-                        TEST
+                        {% include "menu/menu.twig" with {'menu': header_menu.get_items} %}
                     </div>
                 </div>
             </div>

@@ -15,4 +15,4 @@ You can find and define new image sizes in the lib/image_sizes.php file. For ima
 sizes should be named appropriately for where they are going to be used, for instance an image that will be used in a
 highlight widget should be named highlight-item.
 
-All images should be sized at least 1.5x-2x their display size, then css should be used to scale them down.
+TODO: Image size insturctions.

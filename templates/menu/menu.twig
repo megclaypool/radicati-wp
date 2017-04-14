@@ -3,7 +3,7 @@
 	{% for item in menu %}
 		<li class="{{item.classes | join(' ')}}">
 			<a href="{{item.get_link}}">{{item.title}}</a>
-			{% include "menu/menu.twig" with {'menu': item.get_children} %}
+			{% include "menu/menu-submenu.twig" with {'menu': item.get_children} %}
 		</li>
 	{% endfor %}
 	</ul>
