@@ -1,0 +1,9 @@
+{% extends 'system/base.twig' %}
+
+{% block content %}
+    {% for post in posts %}
+        {% include ['teasers/tease-'~post.post_type~'.twig', 'teasers/tease.twig'] %}
+    {% else %}
+        {{ __('There were no results.') }}
+    {% endfor %}
+{% endblock %}
