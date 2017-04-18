@@ -49,7 +49,7 @@ gulp.task('js', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch(config.sassPath + "**/*.scss", ['css']);
+    gulp.watch(config.sassPath + "/**/*.scss", ['css']);
     gulp.watch(config.staticPath + "/js/base/**/*.js", ['js']);
 });
 

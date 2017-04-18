@@ -2,5 +2,8 @@
     <div class="offcanvas-header">
         <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu" data-canvas="body"><i class="fa fa-times"></i> Close</button>
     </div>
+    <div class="clearfix"></div>
     {% include "menu/menu.twig" with {'menu': mobile_menu.get_items} %}
+
+    {# More menus can be added here, or even a region for widgets. #}
 </div>

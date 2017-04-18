@@ -20,3 +20,8 @@ require_once 'lib/image_sizes.php';
 
 // All actions should go in here
 require_once 'lib/actions.php';
+
+// ACF Local Field definitions
+// This is faster than having these fields in the database, and puts in them git
+// Should only be done with fields that are on every site - they can't be disabled.
+require_once 'lib/field_defs.php';
