@@ -1,0 +1,36 @@
+{% macro responsive_image(image, display_style) %}
+    {% set retina_style = display_style ~ "2x" %}
+    <img class="{{ display_style }}"
+         src="{{ image | resize(display_style) }}"
+         srcset="{{ image | resize(display_style) | retina(1) }} 1x,
+                 {{ image | resize(retina_style)  | retina(2) }} 2x"
+         alt="{{ image.alt }}" />
+{% endmacro %}
+
+{% macro responsive_background(image, display_style, css_path) %}
+    {% set retina_style = display_style ~ "2x" %}
+    <style>
+        {{ css_path }} {
+            background-image: url('{{ image | resize(display_style) }}');
+        }
+        @media
+        (-webkit-min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi) {
+            {{ css_path }}  {
+                background-image: url('{{ image | resize(retina_style) }}');
+            }
+        }
+        @media
+        (min-resolution: 192dpi) and (max-width: 485px) {
+            {{ css_path }} {
+                background-image: url('{{ image | resize(retina_style) }}');
+            }
+        }
+        @media
+        (max-resolution: 191dpi) and (max-width: 485px) {
+            {{ css_path }}  {
+                background-image: url('{{ image | resize(display_style) }}');
+            }
+        }
+    </style>
+{% endmacro %}
