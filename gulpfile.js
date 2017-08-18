@@ -4,7 +4,8 @@ var gulp = require('gulp'),
     bower = require('gulp-bower'),
     concat = require('gulp-concat'),
     rename = require('gulp-rename'),
-    minify = require('gulp-minify');
+    minify = require('gulp-minify'),
+    sourcemaps = require('gulp-sourcemaps');
 
 var config = {
     bowerDir: "./bower_components",
@@ -24,16 +25,22 @@ gulp.task('font-awesome', function() {
 
 gulp.task('css', function() {
     return sass(config.sassPath + "/hip-styles.scss", {
-            style: 'compressed',
-            loadPath: [
-                config.bowerDir + "/bootstrap-sass/assets/stylesheets",
-                config.bowerDir + "/font-awesome/scss",
-            ]
-        }).on("error", notify.onError(function(error) {
-            return "Error: " + error.message;
+        sourcemap: true,
+        style: 'compressed',
+        loadPath: [
+            config.bowerDir + "/bootstrap-sass/assets/stylesheets",
+            config.bowerDir + "/font-awesome/scss",
+        ]
+    }).on("error", notify.onError(function(error) {
+        return "Error: " + error.message;
+    }))
+        .pipe(sourcemaps.write())
+        .pipe(sourcemaps.write('maps', {
+            includeContent: false,
+            sourceRoot: 'source'
         }))
         .pipe(gulp.dest(config.staticPath + "/css"));
-});
+    });
 
 gulp.task('js', function() {
     gulp.src(config.staticPath + "/js/base/**/*.js")
