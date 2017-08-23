@@ -6,7 +6,7 @@
                     <div class="col-lg-4 col-md-4 col-sm-12">
                         <h2 class="logo">
                             <a class="logo-link" href="{{site.url}}" rel="home">
-                                {% if header_logo %}
+                                {% if site_logo %}
                                     <img src="{{ site_logo | resize('header-logo') }}"
                                          srcset="{{ site_logo | resize('header-logo') | retina(1) }} 1x,
                                                  {{ site_logo | resize('header-logo2x') | retina(2) }} 2x" }}
