@@ -16,15 +16,15 @@ You must have the Timber plugin enabled before enabling the theme.
 
 In order to minify your javascript and compile your SASS there are libraries you're going to have to install. Running these commands should do the trick as long as you have npm installed already.
 
-> npm install gulp gulp-ruby-sass gulp-notify gulp-bower gulp-minify gulp-concat gulp-rename
+> npm install gulp gulp-ruby-sass gulp-notify gulp-bower gulp-minify gulp-concat gulp-rename gulp-sourcemaps
 
-After all the node modules are installed you should be able to minify your JS with: 
+After all the node modules are installed you should be able to minify your JS with:
 > gulp js
 
-You should be able to compile SASS with: 
+You should be able to compile SASS with:
 > gulp css
 
-And watch for changes with: 
+And watch for changes with:
 > gulp watch
 
 In order to be found your javascripts must be in the static/js/base directory, and your SASS must be in static/scss. You can edit the gulpfile to configure that. I'm not a pro at configuring gulp to minify Javascript and I feel like a better job can be done, if anyone wants to make a suggestion there, that would be awesome.
