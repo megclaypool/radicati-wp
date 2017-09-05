@@ -12,6 +12,7 @@
 
 // 3: Site-wide tags and basic styles
 @import "atoms/tags";
+@import "responsive-font-mixin";
 
 // 4: Widgets
 @import "widgets/inline_button";
