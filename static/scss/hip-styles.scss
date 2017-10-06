@@ -13,6 +13,7 @@
 // 3: Site-wide tags and basic styles
 @import "atoms/tags";
 @import "responsive-font-mixin";
+@import "atoms/media-breakpoint-mixins";
 
 // 4: Widgets
 @import "widgets/inline_button";

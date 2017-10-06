@@ -3,10 +3,11 @@
 $off-canvas-height: 40px;
 
 .offcanvas-header {
-
+  padding-top: 50px;
 }
 
 .offcanvas {
+  
 
   > ul {
     margin: 0;
@@ -31,30 +32,47 @@ $off-canvas-height: 40px;
 
         &:active, &:hover {
           text-decoration: none;
-        }
-      }
+        } 
+      }     
 
       &.menu-item-has-children > a:after{
-        font-family: FontAwesome;
-        content: "\f078";
-        position: absolute;
-        right: 10px;
-        top: 0;
-      }
+          font-family: FontAwesome;
+          content: "\f078";
+          position: absolute;
+          right: 10px;
+          top: 0;
+          @include transition(all .2s linear);
+          @include rotate(0);        
+        }
 
-      > ul.dropdown-menu {
-        position: inherit;
-        display: inherit;
-        height: 0;
-        float: none;
-        padding: 0;
-        margin: 0;
-        -webkit-border-radius: 0;
-        -moz-border-radius: 0;
-        border-radius: 0;
-        overflow: hidden;
-        border: 0;
-        //transition: height 1s;
+      &.menu-item-has-children.active > a:after {
+        @include transition(all .2s linear);
+        @include rotate(180deg);
+      }
+    }
+
+    ul.dropdown-menu {
+      position: inherit;
+      display: inherit;
+      height: 0;
+      float: none;
+      padding: 0 0 0 15px;
+      margin: 0;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+      overflow: hidden;
+      border: 0;
+      transition: height 1s;
+
+      li {
+        font-size: 14px;
+
+        a {
+          padding: 7px 0;
+          white-space: normal;
+          text-decoration: none;
+        }
       }
     }
 
