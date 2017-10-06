@@ -1,4 +1,39 @@
-$site-width-lg: 1400px;
-$site-width-md: 970px;
-$site-width-sm: 750px;
-$site-width-xs: 1400px;
+$site-width: 1400px;
+
+/* FONTS */
+
+$body_font: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+
+$header_font: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+
+
+/*Colors*/
+$primary_color: blue;
+
+/* ****************** MIXINS *********** */
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin shadow($shadow) {
+	-webkit-box-shadow: $shadow;  
+	-moz-box-shadow: $shadow;
+	box-shadow: $shadow; 
+}
+
+@mixin transition($transition) {    
+	-webkit-transition: ($transition);
+    -moz-transition: ($transition);
+    -o-transition: ($transition);
+    transition: ($transition);
+}
+
+@mixin rotate($degrees) {
+	-webkit-transform: rotate($degrees);
+	-moz-transform: rotate($degrees);
+	-ms-transform: rotate($degrees);
+	-o-transform: rotate($degrees);
+}

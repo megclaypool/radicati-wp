@@ -1,18 +1,103 @@
 /*
  * All basic html tags.
  */
+/*
+ * All basic html tags.
+ */
+::selection {
+	background: $primary_color;
+	color: white;
+}
 
 a {
-  color: green;
+	color: $primary_color;
+	text-decoration: underline;
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		color: $primary_color;
+	}
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
+  display: block;
 }
 
-input[type=submit], input[type=button] {
-  border: 0;
-  background-color: lightgray;
-  color: white;
+h1,
+h2,
+h3,
+h4,
+h5, 
+h6 {
+	font-family: $header_font;
+	line-height: 1.2;
+	-webkit-text-stroke: 0.45px;
+	-webkit-text-stroke: 0.45px rgba(0, 0, 0, 0.1);
+	text-shadow: #fff 0px 1px 1px;	
+
+	a {
+		color: $primary_color;
+		text-decoration: none;
+	}
+}
+
+#content {
+
+	h1 {
+		font-size: 24px;
+	}
+
+	h2 {
+		font-size: 20px;
+	}
+
+	h3, h4, h5, h6 {
+		font-size: 18px;
+	}
+
+	p {
+		margin-bottom: 20px;
+	}
+
+	li,
+	p {
+		line-height: 1.5;
+	}
+
+	ul,
+	ol {
+		margin: 20px 0 25px;
+	}
+
+	.alignright {
+		margin: 20px auto;
+
+		@media(min-width:768px) {
+			float: right;
+			max-width: 80%;
+			margin: 0 0 20px 20px;
+		}
+	}
+
+	.alignleft {
+		margin: 20px auto;
+
+		@media(min-width:768px) {
+			float: left;
+			max-width: 50%;
+			margin: 0 20px 20px 0;
+		}
+
+		@media(min-width:992px) {
+			max-width: 100%;
+		}
+	}
+
+	.aligncenter {
+		margin: 20px auto;
+		max-width: 100%;
+	}	
 }

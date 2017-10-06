@@ -5,7 +5,6 @@
   -webkit-border-radius:0;
   -moz-border-radius: 0;
   border-radius: 0;
-
   min-height: 0;
   margin-bottom: 0;
 }
@@ -23,6 +22,69 @@
 .navbar-collapse {
   padding-left: 0;
 }
+
+.navbar-toggle {
+    position: absolute;
+    float: none;
+    margin-right: 0;
+    padding: 9px 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: transparent;
+    background-image: none;
+    border: 0 none;
+    border-radius: 0;
+    top: 0;
+    right: 0;
+    z-index: 1;
+
+    .icon-bar {
+        display: block;
+        width: 22px;
+        height: 2px;
+        border-radius: 1px;
+        background: black;
+    }    
+}
+
+/*default mobile navbar toggle animation*/
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+    background-color: transparent;
+}
+
+.navbar-default .navbar-toggle {
+    border: none;
+}
+
+.navbar-toggle span.icon-bar {
+    transition: all 0.15s;
+}
+
+.navbar-toggle span:nth-child(2) {
+    transform: rotate(45deg);
+    transform-origin: 10% 10%;
+}
+
+.navbar-toggle span:nth-child(3) {
+    opacity: 0;
+}
+
+.navbar-toggle span:nth-child(4) {
+    transform: rotate(-45deg);
+    transform-origin: 10% 90%;
+}
+
+.navbar-toggle.collapsed span:nth-child(2),
+.navbar-toggle.collapsed span:nth-child(4) {
+    transform: rotate(0);
+}
+
+.navbar-toggle.collapsed span:nth-child(3) {
+    opacity: 1;
+}
+
+/*main menu cyustom styles*/
 
 #primary-menu-wrapper {
 
