@@ -1,18 +1,26 @@
 @import "variables";
 
-@media (min-width: 1200px) {
+body {
+	font-family: $body_font;
+	font-weight: 300;
+	-webkit-text-stroke: 0.45px;
+	-webkit-text-stroke: 0.45px rgba(0, 0, 0, 0.1);
+	text-shadow: #fff 0px 1px 1px;				
+}
+
+
+.container-fluid {
+	width: 100%;
+}
+
+/*centers content after max site width*/
+@media (min-width: $site-width) {
   .container-fluid {
-    max-width: $site-width-lg;
+    max-width: $site-width;
+    margin: 0 auto;
   }
 }
 
-@media (min-width: 992px) and (max-width: 1199px) {
-  .container-fluid {
-    width: 100%;
-  }
-}
-@media (min-width: 768px) and (max-width: 991px) {
-  .container-fluid {
-    width: 100%;
-  }
+#content {
+	min-height: 80vh;
 }
