@@ -3,7 +3,7 @@
  * Template Name: Landing Page
  */
 $context = Timber::get_context();
-$post = new TimberPost();
+$post = new RadicatiPost();
 $context['post'] = $post;
 $context['title'] = $post->get_title();
 
