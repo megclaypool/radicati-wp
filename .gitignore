@@ -1,2 +1,5 @@
 node_modules
 .sass-cache
+
+# Rando Mac files
+.DS_Store
